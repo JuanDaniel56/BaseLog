@@ -25,6 +25,8 @@ enum LogLevel
 class BaseLogger
 {
 public:
+    BaseLogger();
+    
     BaseLogger(LogLevel level);
 
     void log(LogLevel level, std::string msg);
@@ -40,7 +42,7 @@ public:
     void FATAL(std::string msg);
 
 private:
-    LogLevel _level;
+    LogLevel level_;
 
     std::string currentTime();
 };

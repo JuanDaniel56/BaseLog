@@ -3,12 +3,15 @@
 namespace logger
 {
 
-BaseLogger::BaseLogger(LogLevel level) : _level(level)
+BaseLogger::BaseLogger(): level_(LogLevel::WARNING)
+{}
+
+BaseLogger::BaseLogger(LogLevel level) : level_(level)
 {}
 
 void BaseLogger::log(LogLevel level, std::string msg)
 {
-    if (level <= _level)
+    if (level_ <= level)
     {
         switch (level)
         {
