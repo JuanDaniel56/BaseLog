@@ -1,11 +1,13 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.10)
 
-project(PACKAGE_LOGGER)
+project(cpplogger)
+
+set(CXX_STANDARD 11)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
-# set(SRC_LIST ${CMAKE_CURRENT_SOURCE_DIR}/src/baselogger.cc)
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/src SRC_LIST)
-add_library(baselogger SHARED ${SRC_LIST})
+
+add_library(basiclog SHARED ${SRC_LIST})
