@@ -1,3 +1,0 @@
-2024-09-09_21:23:13 [INFO] This is a info inforamtion
-2024-09-09_21:23:13 [ERROR] This is a error inforamtion
-2024-09-09_21:23:13 [FATAL] This is a fatal inforamtion

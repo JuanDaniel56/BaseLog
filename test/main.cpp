@@ -2,7 +2,7 @@
 
 int main()
 {
-    basiclogger::BasicLogger logger(basiclogger::LogLevel::INFO, "%Y-%m-%d_%H:%M:%S", true, "log.txt");
+    basiclogger::BasicLogger logger(basiclogger::LogLevel::DEBUG, "%Y-%m-%d_%H:%M:%S", true, "log.txt");
 
     logger.Debug("This is a debug inforamtion");
     logger.Warning("This is a warning inforamtion");

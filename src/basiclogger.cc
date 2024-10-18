@@ -13,6 +13,15 @@ const std::unordered_map<LogLevel, std::string> BasicLogger::level_string_ = {
 };
 
 
+const std::unordered_map<LogLevel, std::string> level_output_color_= {
+    {LogLevel::DEBUG, "\033[32m"},
+    {LogLevel::WARNING, "\033[33m"},
+    {LogLevel::INFO, "\033[37m"},
+    {LogLevel::ERROR, "\033[31m"},
+    {LogLevel::FATAL, "\033[1;31m"}
+};
+
+
 BasicLogger::BasicLogger()
 : level_(LogLevel::INFO), datefmt_("%Y-%m-%d %H:%M:%S"), log_to_file_(false)
 {}
@@ -56,8 +65,11 @@ void BasicLogger::Log(LogLevel level, std::string content)
         }
     }
 
-    std::cout << currentTime() << " [" << BasicLogger::level_string_.at(level) << "] " << content << std::endl;
+    std::string level_string =  level_output_color_.at(level) + std::string(" [") + BasicLogger::level_string_.at(level) + std::string("] \033[0m");
+
+    // std::cout << currentTime() << " [" << BasicLogger::level_string_.at(level) << "] " << content << std::endl;
     // std::cout << currentTime() << " " << content << std::endl;
+    std::cout << currentTime() << level_string << content << std::endl;
 
     return ;
 }
